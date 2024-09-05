@@ -1,0 +1,10 @@
+.bloque
+{
+    background-color: rgb(47,53,58) !important;
+}
+
+.contenedor
+{
+    background-color: rgb(232, 232, 232) !important;
+    border: solid rgb(194, 194, 194) .3vh;
+}

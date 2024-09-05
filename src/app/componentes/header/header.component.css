@@ -1,0 +1,14 @@
+.header
+{
+    background-color: rgb(47,53,58) !important;
+}
+
+.option
+{
+    color: rgb(151,154,157) !important;
+}
+.option:hover
+{
+    cursor: pointer;
+    color: rgb(255, 255, 255) !important;
+}
