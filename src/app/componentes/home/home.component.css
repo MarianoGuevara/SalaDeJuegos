@@ -5,6 +5,7 @@
 
 .contenedor
 {
+    margin-top: 40px;
     background-color: rgb(232, 232, 232) !important;
-    border: solid rgb(194, 194, 194) .3vh;
+    /* border: solid rgb(194, 194, 194) .3vh; */
 }

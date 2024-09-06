@@ -14,4 +14,12 @@ export const headerRoutes: Routes = [
         path: 'sobre-creador', 
         loadComponent: () => import('../sobre-mi/sobreMi').then(m => m.SobreMiComponent) 
     },   
+    {
+        path: 'login', 
+        loadComponent: () => import('../login/login.component').then(m => m.LoginComponent) 
+    },
+    {
+        path: 'login/registro', 
+        loadComponent: () => import('../registro/registro.component').then(m => m.RegistroComponent) 
+    },
 ]
