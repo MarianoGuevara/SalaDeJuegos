@@ -1,0 +1,38 @@
+<div class="chat-container">
+    <div class="chat-header">
+      <h2>Chat</h2>
+    </div>
+    <div class="chat-content" #chatContent>
+        <!-- 42 caracteres maximo antes de que se sobresalga -->
+
+        @for (item of mensajes; track $index)  
+        {
+            @if (mensajes[$index].email == auth.usuarioActual?.email) 
+            {
+                <div class="message message-right">
+                    <p>{{mensajes[$index].mensaje}}</p>
+                    <p class="infoMsj mail detail-right">TU</p>
+                    <p class="infoMsj horario detail-right">{{mensajes[$index].fecha}}</p>
+                </div>
+            }
+            @else 
+            {
+                <div class="message message-left">
+                    <p>{{mensajes[$index].mensaje}}</p>
+                    <p class="infoMsj mail detail-left">{{mensajes[$index].email}}</p>
+                    <p class="infoMsj horario detail-left">{{mensajes[$index].fecha}}</p>
+                </div>
+            }
+        }
+      <!-- Agrega más mensajes aca -->
+    </div>
+    <div class="chat-input">
+      <div class="input-group">
+        <input [(ngModel)]="msj" type="text" class="form-control" placeholder="Escribe un mensaje...">
+        <button class="send-button" (click)="SubirMensaje()">
+            <img src="https://img.icons8.com/material-outlined/24/000000/filled-sent.png"/>
+        </button>
+      </div>
+    </div>
+  </div>
+  

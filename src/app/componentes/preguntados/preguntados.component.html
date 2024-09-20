@@ -1,0 +1,61 @@
+<!-- trivia.component.html -->
+<div class="container my-5">
+    <div class="row justify-content-center">
+      <!-- Contenedor principal que engloba todo -->
+      <div class="card col-10 text-center p-4 text-dark contenedor">
+        <!-- Pregunta -->
+        <div class="">
+            <div class="text-center">
+                <div >
+                    <p class="text-center">PUNTAJE : {{puntaje}}</p>
+                    <p class="text-center">INTENTOS RESTANTES : {{intentos}}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="card-body contCard"> -->
+            <div class="col-md-12 card text-center p-1 mb-2">
+                <div class="card-body contCard">
+                    <h2 style="margin: 0 !important; padding: 0;" class="card-title mb-4">{{preguntaActual}}</h2>
+                    <br>
+                    <img src="assets/logo.png" width="50px">
+                    <br>
+                </div>
+            </div>
+          
+          
+          <!-- Opciones, una debajo de la otra -->
+          <div class="row justify-content-center mt-4">
+            <div class="col-md-12 card option-card text-center p-1 mb-2" (click)="IntentoPregunta('A')">
+                <div class="card-body contCard">
+                    <p class="opt">{{opcA}}</p>
+                </div>
+              </div>
+  
+  
+              <div class="col-md-12 card option-card text-center p-1 mb-2" (click)="IntentoPregunta('B')">
+                <div class="card-body contCard">
+                    <p class="opt">{{opcB}}</p>
+                </div>
+              </div>
+  
+  
+              <div class="col-md-12 card option-card text-center p-1 mb-2" (click)="IntentoPregunta('C')">
+                <div class="card-body contCard">
+                    <p class="opt">{{opcC}}</p>
+                </div>
+              </div>
+  
+  
+              <div class="col-md-12 card option-card text-center p-1 mb-2" (click)="IntentoPregunta('D')">
+                <div class="card-body contCard">
+                    <p class="opt">{{opcD}}</p>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+
+      </div>
+    </div>
+  

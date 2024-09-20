@@ -1,24 +1,33 @@
 <main class="form-signin w-100 m-auto container">
-    <form>
-      <img class="mb-4 d-block mx-auto" src="assets/logo.png" alt="" width="72" height="57">
+    <form novalidate>
+      <img class="mb-4 d-block mx-auto" src="assets/logo.png" alt="" width="72" height="57" />
       <h1 class="h3 mb-3 fw-normal text-center">Inicia sesión</h1>
   
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input [(ngModel)]="input_mail" name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
         <label for="floatingInput">Correo electrónico</label>
       </div>
+      
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <input [(ngModel)]="input_pass" name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" />
         <label for="floatingPassword">Contraseña</label>
       </div>
   
       <div class="form-check text-start my-3">
-        <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-          Recuerdame
-        </label>
+        <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault" />
+        <label class="form-check-label" for="flexCheckDefault">Recuerdame</label>
       </div>
-      <button class="btn btn-warning w-100 py-2" type="submit">Ingresar</button>
-      <a routerLink="registro" class="link-primary" style="margin-top: 15px; display: block;">¿Aún no tienes cuenta? ¡Regístrate aquí!</a>
+  
+      <button (click)="loguearse()" class="btn btn-warning w-100 py-2" type="button">Ingresar</button>
+      <a routerLink="registro" class="link-primary" style="margin-top: 15px; display: block">¿Aún no tienes cuenta? ¡Regístrate aquí!</a>
+
+      <div class="quick-access text-center" style="margin-top: 35px;">
+        <h5 class=" mb-3">Usuarios de acceso rápido</h5>
+        <div class="btn-group" role="group" aria-label="Quick access users">
+          <button (click)="LlenarUsers('','')" class="btn btn-outline-secondary" type="button">Usuario1</button>
+          <button (click)="LlenarUsers('2@gmail.com','222222')" class="btn btn-outline-secondary" type="button">Usuario2</button>
+          <button (click)="LlenarUsers('3@gmail.com','333333')" class="btn btn-outline-secondary" type="button">Usuario3</button>
+        </div>
+      </div>
     </form>
   </main>

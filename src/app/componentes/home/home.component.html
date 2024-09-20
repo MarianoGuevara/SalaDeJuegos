@@ -1,29 +1,47 @@
 <main>
     <div class="container py-4 d-flex contenedor">
         
-        <!-- Contenido principal -->
         <div class="col align-items-md-stretch flex-grow-1">
-            <div class="col-md-9 aa">
-                <div class="h-100 p-5 text-bg-dark rounded-3 bloque">
-                    <h2><strong>Change the background</strong></h2>
-                    <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
-                    <button class="btn btn-outline-light" type="button">Example button</button>
+            <div class="col-md-12">
+                <div class="h-100 p-5 text-bg-dark rounded-3 bloque juego trivia">
+                    <h2><strong>TRIVIA PREGUNTADOS</strong></h2>
+                    <p>Pon a prueba tus conocimientos en una amplia variedad de temas con Preguntados. Responde preguntas de historia, ciencia, geografía, entretenimiento y mucho más mientras compites por ser el campeón del conocimiento. ¡Demuestra que eres el más sabio!</p>
+                    <button class="btn btn-outline-light" type="button" routerLink="/preguntados">JUGAR</button>
                 </div>
             </div>
 
             <br>
 
-            <div class="col-md-9">
-                <div class="h-100 p-5 text-bg-dark rounded-3 bloque">
-                    <h2><strong>Change the background</strong></h2>
-                    <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
-                    <button class="btn btn-outline-light" type="button">Example button</button>
+            <div class="col-md-12">
+                <div class="h-100 p-5 text-bg-dark rounded-3 bloque juego ahorcado">
+                    <h2><strong>AHORCADO</strong></h2>
+                    <p>Desafía tu ingenio y vocabulario con Ahorcado. Adivina las palabras ocultas letra por letra antes de que se acabe el tiempo y evites que el personaje termine colgado. ¡Una clásica diversión que nunca pasa de moda!</p>
+                    <button class="btn btn-outline-light" type="button">JUGAR</button>
+                </div>        
+            </div>
+
+            <br>
+
+            <div class="col-md-12">
+                <div class="h-100 p-5 text-bg-dark rounded-3 bloque juego higher-lower">
+                    <h2><strong>MAYOR O MENOR; "HIGHER OR LOWER"</strong></h2>
+                    <p>¿Te atreves a poner a prueba tu intuición? En Mayor o Menor, deberás adivinar si el siguiente número será más alto o más bajo que el actual. Cada decisión cuenta, y la emoción aumenta con cada turno. ¡Acierta tantas veces como puedas sin equivocarte!</p>
+                    <button class="btn btn-outline-light" type="button">JUGAR</button>
                 </div>        
             </div>
         </div>
         
-        <!-- Sidebar -->
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark bloque" style="width: 280px; order: 2;">
+        <!-- TUTORIALES CORTOS DE LOS JUEGOS
+        Ta te ti:
+            Haz clic en cualquier casilla vacía para colocar tu símbolo.
+            Gana formando una línea de 3 símbolos iguales, en horizontal, vertical o diagonal.
+        Preguntados:
+            Responde correctamente a las preguntas en el menor tiempo posible.
+            Cuantas más respuestas correctas, más puntos obtienes. 
+        ALGO ASI... -->
+
+        <!-- Sidebar --> 
+        <!-- <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark bloque sidebar" style="width: 280px; order: 2;">
             <span class="fs-4">Juegos Disponibles</span>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
@@ -41,6 +59,6 @@
                 <li>Nav (150)</li>
                 <li>Nav234 (122)</li>
             </ul>
-        </div>
+        </div> -->
     </div>
 </main>

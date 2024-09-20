@@ -1,19 +1,40 @@
 <header class="p-3 text-bg-dark header">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <img class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap" src="assets/logo.png"  alt="logo">
-  
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li class="nav-link px-2 text-white option" routerLink="">Home</li>
-          <li class="nav-link px-2 text-secondary option" routerLink="sobre-creador">¿Quien es el creador del sitio?</li>
-          <!-- <li class="nav-link px-2 text-white option">El creador</li> -->
-        </ul>
-        
-        <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2" routerLink="login">Login</button>
-          <button type="button" class="btn btn-warning" routerLink="login/registro">Sign-up</button>
-        </div>
+  <div class="container">
+    <div
+      class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <img class="bi me-2" width="35px" height="auto" role="img" aria-label="Bootstrap" src="assets/logo.png" alt="logo"/>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li class="nav-link px-2 text-white option" routerLink="/home">Home</li>
+        <li class="nav-link px-2 text-secondary option" routerLink="/sobre-creador">
+          ¿Quien es el creador del sitio?
+        </li>
+        @if (auth.usuarioActual != null) 
+        {
+            <li class="imgChat" routerLink="/chat"><img src="assets/chat.png" width="30px" style="margin-top: 8px; margin-left: 5px;"></li>
+        }
+        <!-- <li class="nav-link px-2 text-white option">El creador</li> -->
+      </ul>
+
+      <div class="d-flex align-items-center text-end">
+        @if (auth.logueado) 
+        {
+            @if (auth.usuarioActual != null) 
+            {
+                <p class="mb-0 me-3 text-warning">{{auth.usuarioActual.email}}</p>
+            }
+
+            <button type="button" class="btn btn-outline-light me-2" (click)="cerrarSesion()">Cerrar Sesión</button>
+        } 
+        @else 
+        {
+            <button type="button" class="btn btn-outline-light me-2" routerLink="login">Login</button>
+            <button type="button" class="btn btn-warning" routerLink="login/registro">Sign-up</button>
+        }
       </div>
     </div>
+  </div>
+  <!-- <p (click)="chis()">AAAAA</p> -->
 </header>
+
 <router-outlet />

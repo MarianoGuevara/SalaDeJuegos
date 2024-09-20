@@ -1,3 +1,46 @@
+.trivia
+{
+    background-image: url("../../../assets/trivia.jpg");
+}
+
+.ahorcado
+{
+    background-image: url("../../../assets/ahorcado.jpg");
+}
+
+.higher-lower
+{
+    background-image: url("../../../assets/higher-lower.jpg");
+}
+
+.juego {
+    position: relative;  /* Necesario para usar ::before */
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;  /* Para que el texto sea legible sobre el fondo */
+    z-index: 1;  /* Coloca el contenido en un nivel superior al ::before */
+
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.juego::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(21, 21, 21, 0.8); /* Aumenta la opacidad al 70% */
+    z-index: -1;  /* Mantén la capa de superposición debajo del contenido */
+    border-radius: inherit; /* Mantiene los bordes redondeados si los hay */
+}
+
 .bloque
 {
     background-color: rgb(47,53,58) !important;
@@ -8,4 +51,11 @@
     margin-top: 40px;
     background-color: rgb(232, 232, 232) !important;
     /* border: solid rgb(194, 194, 194) .3vh; */
+}
+
+.sidebar 
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 25px;
 }

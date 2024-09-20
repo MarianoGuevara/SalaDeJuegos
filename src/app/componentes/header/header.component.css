@@ -5,10 +5,16 @@
 
 .option
 {
-    color: rgb(151,154,157) !important;
+    color: rgb(183, 183, 183) !important;
 }
 .option:hover
 {
     cursor: pointer;
     color: rgb(255, 255, 255) !important;
+}
+
+.imgChat:hover
+{
+    cursor: pointer;
+    transform: scale(1.2);
 }
