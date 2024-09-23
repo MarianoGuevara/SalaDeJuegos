@@ -19,7 +19,7 @@ interface Mensaje {
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })
-export class ChatComponent implements AfterViewChecked {
+export class ChatComponent {
     @ViewChild('chatContent') chatContent: ElementRef | null = null;
     private isScrollingEnabled: boolean = true;
 
@@ -59,10 +59,6 @@ export class ChatComponent implements AfterViewChecked {
         }, (error: any) => {
             console.error('Error al cargar los mensajes', error);
         });
-    }
-
-    ngAfterViewChecked() {
-        // No hagas scroll automáticamente aquí para evitar el problema de repetición
     }
 
     scrollToBottom(): void {

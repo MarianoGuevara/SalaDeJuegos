@@ -27,4 +27,16 @@ export const routes: Routes = [
         path: 'chat',
         loadComponent: ()=> import('./componentes/chat/chat.component').then(m => m.ChatComponent)
     },
+    {
+        path: 'clickrush',
+        loadComponent: ()=> import('./componentes/clickrush/clickrush.component').then(m => m.ClickrushComponent)
+    },
+    {
+        path: 'ahorcado',
+        loadComponent: ()=> import('./componentes/ahorcado/ahorcado.component').then(m => m.AhorcadoComponent)
+    },
+    {
+        path: 'mayormenor',
+        loadComponent: ()=> import('./componentes/mayormenor/mayormenor.component').then(m => m.MayormenorComponent)
+    },
 ];

@@ -1,0 +1,4 @@
+.col-md-7 {
+    max-height: 400px;  /* Limita la altura del texto al tamaño de la imagen */
+    overflow-y: auto;  /* Añade un scroll vertical si el texto excede la altura */
+}

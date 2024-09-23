@@ -32,4 +32,20 @@ export class ApiRequestPreguntadosService {
     // SI HICIERA EL SUSCRIBE ACA, LA PETICION ESTARIA CARGADA SIEMPRE EN EL SERVICIO Y SOLO LA QUIERO 
     // EN ALGUNOS COMPONENTES POR ESO A VECES NECESITAMOS Q LA PETICION SEA LOCAL DEL COMPONENTE LA MAYORIA DE VECES
   }
+
+
+
+  traerImagenSobrePregunta()
+  {
+    
+    const apiUrl = `https://api.unsplash.com/search/photos?client_id=CXTqJZq4rTadML5sVLFAr7yQk6Ni6qB19px26pTra68&orientation=landscape&query=${this.categorias[this.categoria_actual]}`;
+    console.log(this.categorias[this.categoria_actual]);
+    const peticion = this.http.get(apiUrl, {
+        responseType : "json",
+        headers: {
+        }
+        
+    })
+    return peticion; // la devuelvo y cada componente llamará individualmente a la api
+  }
 }

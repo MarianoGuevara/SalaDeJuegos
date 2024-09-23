@@ -1,0 +1,25 @@
+<div class="container-fluid d-flex justify-content-between">
+    <div class="game-container d-flex flex-column justify-content-between w-75">
+      <div class="stats-container d-flex justify-content-between">
+        <div class="stat-item">{{clicks}} <span>Puntaje</span></div>
+        <div class="stat-item">{{tiempo}} <span>Tiempo</span></div>
+      </div>
+      <div class="start-btn-container">
+        <button class="start-btn" (click)="startGameBtnTxt()">{{txt_btn}}</button>
+      </div>
+    </div>
+  
+    <div class="sidebar d-flex flex-column">
+      <div class="challenge">DESAFÍOS DE CPS</div>
+      <ul class="challenge-list">
+        <li class="challenge-item 1" (click)="setActive($event)">1 SEGUNDO</li>
+        <li class="challenge-item 2" (click)="setActive($event)">2 SEGUNDOS</li>
+        <li class="challenge-item 5" (click)="setActive($event)">5 SEGUNDOS</li>
+        <li class="challenge-item 10" (click)="setActive($event)">10 SEGUNDOS</li>
+        <li class="challenge-item 30" (click)="setActive($event)">30 SEGUNDOS</li>
+        <li class="challenge-item 60" (click)="setActive($event)">60 SEGUNDOS</li>
+      </ul>
+    </div>
+  </div>
+  
+  

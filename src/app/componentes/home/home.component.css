@@ -13,6 +13,11 @@
     background-image: url("../../../assets/higher-lower.jpg");
 }
 
+.juego-propio
+{
+    background-image: url("../../../assets/clickrush.jpg");
+}
+
 .juego {
     position: relative;  /* Necesario para usar ::before */
     

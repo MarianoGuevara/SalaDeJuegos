@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Usuario } from '../../clases/usuario';
 import { AutentificadorUsuarios } from '../../servicios/autentificador-usuarios.service';
 import Swal, { SweetAlertIcon } from 'sweetalert2'; // Importa SweetAlertIcon
+import { AlertService } from '../../servicios/alert.service';
 
 @Component({
   selector: 'app-registro',
@@ -17,6 +18,7 @@ export class RegistroComponent {
 
   private auth = inject(AutentificadorUsuarios);
   private router = inject(Router);
+  private alert = inject(AlertService);
 
   input_mail:string = "";
   input_pass:string = "";
@@ -43,7 +45,7 @@ export class RegistroComponent {
         .registarUsuario(this.usuario.email, this.usuario.password)
         .then(() => {
           this.auth.logueado = true;
-          this.Alerta("Registrado", "Bienvenido a la app, " + this.usuario?.email, 'success', this.auth.logueado, "/home");
+          this.alert.Alerta("Registrado", "Bienvenido a la app, " + this.usuario?.email, 'success', this.auth.logueado, "/home");
         })
         .catch((error) => {
             console.error((error as Error).message);
@@ -54,9 +56,8 @@ export class RegistroComponent {
             // else if ((error as Error).message == 'auth/user-not-found') msj = "No se encontró ningún usuario con este correo.";
             // else if ((error as Error).message == 'auth/wrong-password') msj = "No se encontró ningún usuario con esta clave.";
            
-            this.Alerta("Fracaso", msj, 'error');
+            this.alert.Alerta("Fracaso", msj, 'error');
         });
-
     }
     catch
     {
@@ -64,26 +65,4 @@ export class RegistroComponent {
     }
 
   }
-
-
-  Alerta(titulo:string, texto:string, icono:SweetAlertIcon, navegar=false, ruta="")
-  {
-    Swal.fire({
-        title: titulo,
-        text: texto,
-        icon: icono, // 'success', 'error', 'warning', 'info', 'question'
-        confirmButtonColor: '#3085d6',
-        confirmButtonText: 'Aceptar',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          // Lógica si el usuario confirma
-           if (navegar && ruta != "")
-           {
-               this.router.navigate([ruta]);
-           }
-          
-        }
-      });
-  }
-
 }

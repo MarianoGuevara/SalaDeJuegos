@@ -7,7 +7,7 @@ import { Usuario } from '../../clases/usuario';
 import { FormsModule } from '@angular/forms';
 import { LogService } from '../../servicios/log.service';
 import Swal, { SweetAlertIcon } from 'sweetalert2'; // Importa SweetAlertIcon
-
+import { AlertService } from '../../servicios/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +24,7 @@ export class LoginComponent {
   private auth = inject(AutentificadorUsuarios);
   private log = inject(LogService);
   private router = inject(Router);
+  private alert = inject(AlertService);
 
   loguearse() {
     try
@@ -36,7 +37,7 @@ export class LoginComponent {
 
             this.auth.logueado = true;
             this.auth.usuarioActual = retorno.user;
-            this.Alerta("Exito", "Bienvenido, " + this.usuario?.email, 'success', this.auth.logueado, "/home");
+            this.alert.Alerta("Exito", "Bienvenido, " + this.usuario?.email, 'success', this.auth.logueado, "/home");
             this.log.RegistrarLogin(this.usuario?.email as string); // casteo pq ladra esta cosa
         })
         .catch((error) => {
@@ -48,34 +49,15 @@ export class LoginComponent {
             // else if ((error as Error).message == 'auth/user-not-found') msj = "No se encontró ningún usuario con este correo.";
             // else if ((error as Error).message == 'auth/wrong-password') msj = "No se encontró ningún usuario con esta clave.";
            
-            this.Alerta("Fracaso", msj, 'error');
+            this.alert.Alerta("Fracaso", msj, 'error');
         });
     }
     catch (e)
     {
-        this.Alerta("Fracaso", (e as Error).message, 'error');
+        this.alert.Alerta("Fracaso", (e as Error).message, 'error');
     }
   }
 
-  Alerta(titulo:string, texto:string, icono:SweetAlertIcon, navegar=false, ruta="")
-  {
-    Swal.fire({
-        title: titulo,
-        text: texto,
-        icon: icono, // 'success', 'error', 'warning', 'info', 'question'
-        confirmButtonColor: '#3085d6',
-        confirmButtonText: 'Aceptar',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          // Lógica si el usuario confirma
-           if (navegar && ruta != "")
-           {
-               this.router.navigate([ruta]);
-           }
-          
-        }
-      });
-  }
   LlenarUsers(mail:string, pass:string)
   {
     this.input_mail = mail;
