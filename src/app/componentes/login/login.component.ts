@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { AutentificadorUsuarios } from '../../servicios/autentificador-usuarios.service';
 import { Usuario } from '../../clases/usuario';
-import { FormsModule } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LogService } from '../../servicios/log.service';
 import Swal, { SweetAlertIcon } from 'sweetalert2'; // Importa SweetAlertIcon
 import { AlertService } from '../../servicios/alert.service';
@@ -12,11 +12,13 @@ import { AlertService } from '../../servicios/alert.service';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, RegistroComponent, FormsModule],
+  imports: [RouterLink, RegistroComponent, FormsModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+  public formGroupMio: FormGroup;
+
   usuario: Usuario | null = null;
   input_mail:string = "";
   input_pass:string = "";
@@ -25,10 +27,21 @@ export class LoginComponent {
   private log = inject(LogService);
   private router = inject(Router);
   private alert = inject(AlertService);
+  fb = inject(FormBuilder)
+  
+  constructor(){
+    this.formGroupMio = this.fb.group({ 
+        // 1er parametro es el valor por defecto que tendrá el input. 2do listado de validaciones q debe cumplir el input
+        correo: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(40), Validators.email]], 
+        clave: ["", [Validators.required, Validators.minLength(6), Validators.maxLength(30), this.miValidadorPropio]]
+    });
+
+  }
 
   loguearse() {
     try
     {
+        console.log(this.formGroupMio);
         this.usuario = new Usuario(this.input_mail, this.input_pass);
 
         this.auth.loguearse(this.usuario.email, this.usuario.password)
@@ -62,5 +75,20 @@ export class LoginComponent {
   {
     this.input_mail = mail;
     this.input_pass = pass;
+  }
+
+  miValidadorPropio(control: AbstractControl): null | object
+  {
+      const valor: string = control.value as string;
+      const tieneEspacios = valor.includes(" ");
+      if (tieneEspacios)
+      {
+          return { 
+              espacios : {
+                  posicion: valor.indexOf(" "),
+              },
+          };
+      }
+      else {return null;}
   }
 }

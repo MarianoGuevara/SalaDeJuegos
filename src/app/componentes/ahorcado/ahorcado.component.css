@@ -1,0 +1,61 @@
+.contenedor {
+    background-color: rgb(232, 232, 232); /* Fondo gris */
+    padding: 20px; /* Espacio dentro del contenedor */
+    border-radius: 8px; /* Bordes redondeados para un mejor diseño */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor */
+    max-width: 600px; /* Limita el tamaño máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+}
+
+.teclado {
+    display: flex;
+    flex-wrap: wrap; /* Ajusta las letras en filas automáticamente */
+    justify-content: center; /* Centra las letras dentro de cada fila */
+    margin: 0 auto; /* Centra el teclado en la pantalla */
+}
+
+.letra {
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    font-weight: bold; /* Letras en negrita */
+    font-size: 16px; /* Tamaño de letra */
+    border-radius: 4px; /* Bordes redondeados para las letras */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera en las letras */
+}
+
+.letra:hover
+{
+    cursor: pointer;
+    background-color: rgb(149, 149, 149);
+}
+.letra:active
+{
+    background-color: rgb(255, 195, 14);
+    
+}
+
+.palabra
+{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.guion
+{
+    border-bottom: solid black 2.5px; 
+    width: 20px; 
+    height: auto; 
+    margin: 5px;
+}
+
+.disabled {
+    background-color: rgba(128, 128, 128, 0.5); /* Color gris claro */
+    pointer-events: none; /* Deshabilita interacciones */
+    opacity: 0.5; /* Opacidad para dar un efecto visual */
+}

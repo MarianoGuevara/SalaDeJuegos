@@ -1,24 +1,69 @@
 <main class="form-signin w-100 m-auto container">
-    <form novalidate>
+    <form [formGroup]="formGroupMio" (ngSubmit)="loguearse()">
       <img class="mb-4 d-block mx-auto" src="assets/logo.png" alt="" width="72" height="57" />
       <h1 class="h3 mb-3 fw-normal text-center">Inicia sesión</h1>
   
       <div class="form-floating">
-        <input [(ngModel)]="input_mail" name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
+        <input formControlName="correo" [(ngModel)]="input_mail" name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
         <label for="floatingInput">Correo electrónico</label>
       </div>
+      @if (formGroupMio.controls["correo"].errors !== null && formGroupMio.controls["correo"].touched)
+      {
+          @if (formGroupMio.controls["correo"].errors!['required'])
+          {
+              <p style="color: rgb(255, 95, 95);">El correo es obligatorio</p>
+          }
+          @else if (formGroupMio.controls["correo"].errors!['minlength'])
+          {
+              <p style="color: rgb(255, 95, 95);">Cantidad de caracteres inválida (mínimo {{formGroupMio.controls["correo"].errors!['minlength'].requiredLength}})</p>
+          }
+          @else if (formGroupMio.controls["correo"].errors!['maxlength'])
+          {
+              <p style="color: rgb(255, 95, 95);">Cantidad de caracteres inválida (máximo {{formGroupMio.controls["correo"].errors!['maxlength'].requiredLength}})</p>
+          }
+          @else if (formGroupMio.controls["correo"].errors!['email'])
+          {
+              <p style="color: rgb(255, 95, 95);">El correo no es válido</p>
+          }
+      }
+      
+      
+
       
       <div class="form-floating">
-        <input [(ngModel)]="input_pass" name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" />
+        <input formControlName="clave" [(ngModel)]="input_pass" name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" />
         <label for="floatingPassword">Contraseña</label>
+
+        @if (formGroupMio.controls["clave"].errors !== null && formGroupMio.controls["clave"].touched)
+        {
+            @if (formGroupMio.controls["clave"].errors!['required'])
+            {
+                <p style="color: rgb(255, 95, 95);">La clave es obligatoria</p>
+            }
+            @else if (formGroupMio.controls["clave"].errors!['minlength'])
+            {
+                <p style="color: rgb(255, 95, 95);">Cantidad de caracteres inválida (mínimo {{formGroupMio.controls["clave"].errors!['minlength'].requiredLength}})</p>
+            }
+            @else if (formGroupMio.controls["clave"].errors!['maxlength'])
+            {
+                <p style="color: rgb(255, 95, 95);">Cantidad de caracteres inválida (máximo {{formGroupMio.controls["clave"].errors!['maxlength'].requiredLength}})</p>
+            }
+            @else if (formGroupMio.controls["clave"].errors!['espacios'])
+            {
+                <p style="color: rgb(255, 95, 95);">La clave no puede tener espacios</p>
+            }
+        }
+
+
       </div>
   
-      <div class="form-check text-start my-3">
+      <!-- <div class="form-check text-start my-3">
         <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault" />
         <label class="form-check-label" for="flexCheckDefault">Recuerdame</label>
-      </div>
+      </div> -->
   
-      <button (click)="loguearse()" class="btn btn-warning w-100 py-2" type="button">Ingresar</button>
+
+      <button [disabled]="!formGroupMio.valid" class="btn btn-warning w-100 py-2" type="submit">Ingresar</button>
       <a routerLink="registro" class="link-primary" style="margin-top: 15px; display: block">¿Aún no tienes cuenta? ¡Regístrate aquí!</a>
 
       <div class="quick-access text-center" style="margin-top: 35px;">

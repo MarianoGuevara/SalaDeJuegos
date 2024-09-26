@@ -3,24 +3,26 @@ export class Usuario {
     password = '';
   
     constructor(email: string, password: string) {
-      try
-      {
-        this.email = this.verificarMail(email);
-        this.password = this.verificarClave(password);
-      }
-      catch (e) {throw e;}
+        this.email = email;
+        this.password = password;
+    //   try
+    //   {
+    //     this.email = this.verificarMail(email);
+    //     this.password = this.verificarClave(password);
+    //   }
+    //   catch (e) {throw e;}
     }
 
-    verificarMail(correo_ing:string)
-    { 
-        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if ( emailRegex.test(correo_ing) == false) {throw new Error("Correo en formato inválido");}
-        return correo_ing;
-    }
+    // verificarMail(correo_ing:string)
+    // { 
+    //     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    //     if ( emailRegex.test(correo_ing) == false) {throw new Error("Correo en formato inválido");}
+    //     return correo_ing;
+    // }
 
-    verificarClave(clave:string)
-    {
-        if (clave.length < 6) {throw new Error("Clave en formato inválido");}
-        return clave;
-    }
+    // verificarClave(clave:string)
+    // {
+    //     if (clave.length < 6) {throw new Error("Clave en formato inválido");}
+    //     return clave;
+    // }
 }

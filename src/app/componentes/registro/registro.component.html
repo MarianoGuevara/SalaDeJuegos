@@ -1,5 +1,5 @@
 <main class="form-signin w-100 m-auto container">
-  <form novalidate>
+  <form [formGroup]="formGroupMio" (ngSubmit)="registrarUsuario()">
     <img
       class="mb-4 d-block mx-auto"
       src="assets/logo.png"
@@ -9,7 +9,7 @@
     />
     <h1 class="h3 mb-3 fw-normal text-center">Registro</h1>
 
-    <div class="form-floating">
+    <!-- <div class="form-floating">
       <input
         type="text"
         class="form-control"
@@ -37,7 +37,7 @@
       <label for="floatingInput">Nombre de usuario</label>
     </div>
 
-    <br />
+    <br /> -->
 
     <div class="form-floating">
       <input
@@ -47,8 +47,31 @@
         class="form-control"
         id="mail"
         placeholder="name@example.com"
+        formControlName="correo"
       />
       <label for="floatingInput">Correo electrónico</label>
+
+      @if (formGroupMio.controls["correo"].errors !== null && formGroupMio.controls["correo"].touched)
+      {
+          @if (formGroupMio.controls["correo"].errors!['required'])
+          {
+              <p style="color: rgb(255, 95, 95);">La clave es obligatoria</p>
+          }
+          @else if (formGroupMio.controls["correo"].errors!['minlength'])
+          {
+              <p style="color: rgb(255, 95, 95);">Cantidad de caracteres inválida (mínimo {{formGroupMio.controls["correo"].errors!['minlength'].requiredLength}})</p>
+          }
+          @else if (formGroupMio.controls["correo"].errors!['maxlength'])
+          {
+              <p style="color: rgb(255, 95, 95);">Cantidad de caracteres inválida (máximo {{formGroupMio.controls["correo"].errors!['maxlength'].requiredLength}})</p>
+          }
+          @else if (formGroupMio.controls["correo"].errors!['espacios'])
+          {
+              <p style="color: rgb(255, 95, 95);">La clave no puede tener espacios</p>
+          }
+      }
+
+
     </div>
     <div class="form-floating">
       <input
@@ -58,21 +81,43 @@
         class="form-control"
         id="pass"
         placeholder="Password"
+        formControlName="clave"
       />
       <label for="floatingPassword">Contraseña</label>
+
+      @if (formGroupMio.controls["clave"].errors !== null && formGroupMio.controls["clave"].touched)
+      {
+          @if (formGroupMio.controls["clave"].errors!['required'])
+          {
+              <p style="color: rgb(255, 95, 95);">La clave es obligatoria</p>
+          }
+          @else if (formGroupMio.controls["clave"].errors!['minlength'])
+          {
+              <p style="color: rgb(255, 95, 95);">Cantidad de caracteres inválida (mínimo {{formGroupMio.controls["clave"].errors!['minlength'].requiredLength}})</p>
+          }
+          @else if (formGroupMio.controls["clave"].errors!['maxlength'])
+          {
+              <p style="color: rgb(255, 95, 95);">Cantidad de caracteres inválida (máximo {{formGroupMio.controls["clave"].errors!['maxlength'].requiredLength}})</p>
+          }
+          @else if (formGroupMio.controls["clave"].errors!['espacios'])
+          {
+              <p style="color: rgb(255, 95, 95);">La clave no puede tener espacios</p>
+          }
+      }
+
     </div>
 
-    <br />
+    <!-- <br />
 
     <div class="form-floating">
       <input type="text" class="form-control" id="edad" placeholder="18" />
       <label for="floatingInput">Edad</label>
     </div>
 
-    <br />
+    <br /> -->
 
     <!-- <label class="mb-3 fw-normal text-center" style="margin-top: 10px; margin-bottom: 0; padding-bottom: 0;"> Sexo </label> -->
-    <select class="form-select">
+    <!-- <select class="form-select">
       <option selected value="1">Masculino</option>
       <option value="2">Femenino</option>
       <option value="3">Prefiero no decirlo</option>
@@ -87,12 +132,13 @@
       </label>
     </div>
 
+    <br /> -->
     <br />
 
     <button
-      (click)="registrarUsuario()"
       class="btn btn-warning w-100 py-2"
       type="submit"
+      [disabled]="!formGroupMio.valid"
     >
       Registrarse
     </button>

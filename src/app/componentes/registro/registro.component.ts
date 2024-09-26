@@ -1,27 +1,40 @@
 import { Component, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Usuario } from '../../clases/usuario';
 import { AutentificadorUsuarios } from '../../servicios/autentificador-usuarios.service';
+import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import Swal, { SweetAlertIcon } from 'sweetalert2'; // Importa SweetAlertIcon
 import { AlertService } from '../../servicios/alert.service';
 
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css',
 })
 export class RegistroComponent {
+  public formGroupMio: FormGroup;
+
+
   usuario: Usuario | null = null;
 
   private auth = inject(AutentificadorUsuarios);
   private router = inject(Router);
   private alert = inject(AlertService);
+  fb = inject(FormBuilder)
 
   input_mail:string = "";
   input_pass:string = "";
+
+  constructor(){
+    this.formGroupMio = this.fb.group({ 
+        // 1er parametro es el valor por defecto que tendrá el input. 2do listado de validaciones q debe cumplir el input
+        correo: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(40), Validators.email]], 
+        clave: ["", [Validators.required, Validators.minLength(6), Validators.maxLength(30), this.miValidadorPropio]]
+    });
+
+  }
 
 
   ngOnInit(): void {
@@ -64,5 +77,20 @@ export class RegistroComponent {
 
     }
 
+  }
+
+  miValidadorPropio(control: AbstractControl): null | object
+  {
+      const valor: string = control.value as string;
+      const tieneEspacios = valor.includes(" ");
+      if (tieneEspacios)
+      {
+          return { 
+              espacios : {
+                  posicion: valor.indexOf(" "),
+              },
+          };
+      }
+      else {return null;}
   }
 }

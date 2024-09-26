@@ -1,1 +1,36 @@
-<p>ahorcado works!</p>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <!-- Contenedor gris alrededor del teclado -->
+        <div class="card col-10 text-center p-4 text-dark contenedor">
+            <!-- Aquí puedes agregar más elementos en el futuro -->
+            <!-- Teclado de letras -->
+            <div class="img">
+                <img [src]="img_actual" height="275px" width="auto"> 
+            </div>
+
+            <br>
+            <br>
+
+            <div class="palabra">
+                @for (letra of palabra_actual; track $index) {
+                    <div class="guion" [class]="$index.toString()">
+                        <!-- <p style="margin-bottom: 0;">A</p> -->
+                    </div>
+                }
+                
+            </div>
+
+            <br>
+
+            <div class="teclado">   
+                @for (letra of letras; track $index) {
+                    <div class="letra">
+                        <p class="letra" [class]="letras[$index]" (click)="clickLetra($event)" style="margin: 0;">{{letras[$index]}}</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
