@@ -10,9 +10,9 @@ export class AlertService {
     
   constructor() { }
 
-  Alerta(titulo:string, texto:string, icono:SweetAlertIcon, navegar=false, ruta="")
+  async Alerta(titulo:string, texto:string, icono:SweetAlertIcon, navegar=false, ruta="")
   {
-    Swal.fire({
+    return Swal.fire({
         title: titulo,
         text: texto,
         icon: icono, // 'success', 'error', 'warning', 'info', 'question'

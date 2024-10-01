@@ -1,1 +1,25 @@
-<p>mayormenor works!</p>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="card col-10 text-center p-4 text-dark contenedor">
+            <h6>Puntaje: {{puntaje}}</h6>
+            <br>
+            <div class="cartasContenedor">
+                <img [src]="cartaIzq" alt="carta" width="175px" height="auto" style="margin-right: 15px;">
+                <img [src]="cartaDer" alt="carta" width="175px" height="auto">
+            </div>
+            <br>
+            <br>
+            <div class="btnContenedor">
+                @if (clickeable)
+                {
+                    <button (click)="clickBtn('menor')" type="button" class="btn btn-dark" style="margin-right: 10px;">Menor</button>
+                    <button (click)="clickBtn('mayor')" type="button" class="btn btn-warning">Mayor</button>
+                }
+                @else {
+                    <button (click)="clickBtn('menor')" type="button" class="btn btn-dark" style="margin-right: 10px;" disabled>Menor</button>
+                    <button (click)="clickBtn('mayor')" type="button" class="btn btn-warning" disabled>Mayor</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>

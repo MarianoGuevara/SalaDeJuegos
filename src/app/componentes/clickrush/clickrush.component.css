@@ -12,7 +12,7 @@ body {
     margin: 20px auto;
     margin-top: 40px;
     padding: 20px;
-    background-color: rgb(207, 207, 207);
+    background-color: rgb(219, 219, 219);
     align-items: stretch; /* Asegura que los contenedores tengan la misma altura */
 }
 

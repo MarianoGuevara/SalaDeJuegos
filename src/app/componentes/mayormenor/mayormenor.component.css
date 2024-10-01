@@ -1,0 +1,12 @@
+.contenedor
+{
+    background-color:rgb(232, 232, 232) !important;
+}
+.cartasContenedor, .btnContenedor
+{
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}

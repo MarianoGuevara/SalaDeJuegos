@@ -22,6 +22,7 @@ export class AhorcadoComponent {
     palabra_actual:string = "";
     img_actual:string = this.imagenes[0];
     imagenes_flag:number = 0;
+    vidas:number = 7;
     private alert = inject(AlertService);
 
     constructor()
@@ -55,6 +56,7 @@ export class AhorcadoComponent {
     
         } else {
             // Manejar el error (incrementar el contador de imágenes)
+            this.vidas --;
             this.imagenes_flag++;
             this.img_actual = this.imagenes[this.imagenes_flag];
             if (this.imagenes_flag === this.imagenes.length - 1) {

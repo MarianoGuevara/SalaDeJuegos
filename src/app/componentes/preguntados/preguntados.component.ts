@@ -168,18 +168,28 @@ export class PreguntadosComponent {
                 break;
         }
 
+        let icono = "success";
+        let titulo = "Correcto!";
+        let body = "Sumas un punto...";
+
         if (booleano)
         {
             this.puntaje += 1;
         }
         else
         {
+            icono = 'error';
+            titulo = "Incorrecto!";
+            body = "Restas una vida... La correcta era: " + this.rtaCorrectaActual;
+
             this.intentos -= 1;
         }
         
         if (this.intentos > 0)
         {
-            this.preguntaNuevaConSpinner();
+            this.alert.Alerta(titulo, body, icono as SweetAlertIcon).then(() => {
+                this.preguntaNuevaConSpinner();
+            })
         }
         else
         {
