@@ -127,12 +127,6 @@ export class PreguntadosComponent {
         });
     }
 
-    // x()
-    // {
-    //     'https://api.unsplash.com/search/photos?client_id=CXTqJZq4rTadML5sVLFAr7yQk6Ni6qB19px26pTra68&query='
-    // }
-
-
     AsignarQuestionCards(array:any[])
     {
         this.opcA = array[0];

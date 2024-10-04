@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
       // Verificamos la sesión del usuario una vez que la app se inicializa
       this.auth.verificarSesion().then(() => {
         console.log('Sesión de usuario verificada en AppComponent.');
-        this.router.navigate(["/home"]);
+        // this.router.navigate(["/home"]);
         // Aquí podrías emitir algún evento global si es necesario
       });
     }
