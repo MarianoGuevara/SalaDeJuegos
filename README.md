@@ -1,27 +1,21 @@
 # SalaDeJuegos
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
+SalaDeJuegos es un proyecto hecho con angular el cual contiene diferentes funcionalidades de acceso rápido, facil y divertido...
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Link 
+https://sala-de-juegos-guevara.web.app/home
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Funcionalidades
 
-## Build
+La sala de juegos en si misma tiene diferentes componentes entre los cuales se incluyen el inicio de sesión y el registro... Una vez estén las credenciales validadas, se podrá acceden a 4 juegos diferentes todos con sus particularidades y lógica interna como por ejemplo el preguntados trivia el cual está hecho pegandole a 2 apis distintas. También, el sitio cuenta con un chat sincrónico para que todos los usuarios puedan enviar mensajes al estilo WhatsApp.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Fotos 
+![imagenLocal](public/1.jpeg)
+![imagenLocal](public/2.jpeg)
+![imagenLocal](public/3.jpeg)
+![imagenLocal](public/4.jpeg)
+![imagenLocal](public/5.jfif)
+![imagenLocal](public/6.jfif)
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

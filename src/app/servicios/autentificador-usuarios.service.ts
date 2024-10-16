@@ -17,8 +17,8 @@ export class AutentificadorUsuarios implements OnInit {
   usuarioActual: User | null = null;
 
   auth = inject(Auth);
-  router = inject (Router)
-  authSubscription?: Unsubscribe;
+    router = inject (Router)
+    authSubscription?: Unsubscribe;
 
   ngOnInit(): void {
       console.log("Init auth");
